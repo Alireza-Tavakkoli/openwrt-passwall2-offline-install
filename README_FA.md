@@ -1,32 +1,24 @@
-# راهنمای نصب Passwall2 روی OpenWrt
+# راهنمای نصب آفلاین Passwall2 روی OpenWrt
 
-این پروژه برای نصب Passwall2 و حل مشکل وابستگی‌ها روی OpenWrt ساخته شده.
-
----
-
-## مشکل
-
-خیلی از کاربران موقع نصب Passwall2 با خطای وابستگی یا نصب آفلاین مشکل دارند.
+## مقدمه
+این آموزش برای نصب Passwall2 روی OpenWrt در حالت آفلاین (بدون اینترنت روی روتر) و استفاده از پکیج‌های آماده ساخته شده است.
 
 ---
 
-## راه‌حل
+## ⚠️ قبل از شروع (خیلی مهم)
 
-### مرحله 1: آپدیت پکیج‌ها
-opkg update
+باید مشخصات دستگاه خودتان را بدانید، چون اگر پکیج اشتباه نصب کنید، Passwall2 اجرا نمی‌شود یا خطا می‌دهد.
 
-### مرحله 2: نصب پیش‌نیازها
-opkg install luci-compat luci-base
-
-### مرحله 3: نصب Passwall2
-opkg install passwall2.ipk
-
-### مرحله 4: فعال کردن سرویس
-/etc/init.d/passwall2 enable
-/etc/init.d/passwall2 start
+### خطاهای رایج در صورت انتخاب اشتباه:
+- incompatible with the architectures
+- wrong architecture
+- dependency error
 
 ---
 
-## نکته
+## 📌 مرحله 1: پیدا کردن مشخصات دستگاه
 
-اگر LuCI نمایش داده نشد، کش مرورگر را پاک کنید
+وارد SSH شوید و این دستور را بزنید:
+
+```bash
+cat /proc/cpuinfo
