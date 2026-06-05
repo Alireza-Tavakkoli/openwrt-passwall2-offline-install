@@ -174,7 +174,7 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 
 را دانلود کنید.
 
----
+
 
 ## 🌐 دانلود فایل‌ها
 
@@ -184,7 +184,21 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 https://sourceforge.net/projects/openwrt-passwall-build/files/
 ```
 
----
+دانلود کلید ها 
+اگر OpenWrt نسخه 24 به پایین دارید :
+
+
+```text
+ipk.pub
+```
+را دانلود کنید. 
+و اگر OpenWrt نسخه 24 به پایین دارید :
+
+
+```text
+ipk.pub
+```
+را دانلود کنید. 
 
 ## 📂 انتخاب نسخه صحیح
 
@@ -196,7 +210,7 @@ https://sourceforge.net/projects/openwrt-passwall-build/files/
 
 سپس معماری مناسب دستگاه خود را انتخاب کنید.
 
----
+
 
 ## 📦 فایل‌های مورد نیاز
 
@@ -207,7 +221,7 @@ https://sourceforge.net/projects/openwrt-passwall-build/files/
 
 در بعضی نسخه‌ها ممکن است وابستگی‌ها (Dependencies) نیز لازم باشند.
 
----
+
 
 ## ⚠️ قبل از دانلود
 
