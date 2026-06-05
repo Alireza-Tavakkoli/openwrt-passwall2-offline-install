@@ -37,7 +37,8 @@
 
 قبل از هر کاری باید به روتر OpenWrt وصل شوید.
 
-🟢 روش 1: WinSCP (ویندوز - ساده‌ترین روش)
+## 🟢 روش اول: PuTTY (ویندوز)
+
 📥 دانلود:
 
 👉 [https://soft98.ir/internet/network/3197-putty.html]
