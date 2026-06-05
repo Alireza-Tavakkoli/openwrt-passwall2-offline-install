@@ -40,7 +40,7 @@
 ## 🟢 روش اول : PuTTY (ویندوز)
 
 📥 دانلود:
-
+[دانلود](https://soft98.ir/internet/network/3197-putty.html)
 👉 [https://soft98.ir/internet/network/3197-putty.html]
 
 
@@ -155,34 +155,17 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 
 
 ## 📥 مرحله 3 : دانلود فایل‌های مناسب Passwall2
+<br>
 
-حالا که نسخه OpenWrt و معماری دستگاه خود را می‌دانید، باید فایل‌های مناسب دستگاه خود را دانلود کنید.
-
-### مثال
-
-اگر خروجی شما این باشد:
-
-```text
-DISTRIB_RELEASE='24.10'
-DISTRIB_ARCH='aarch64_cortex-a53'
-```
-
-باید فایل‌های مربوط به:
-
-* OpenWrt 24.10
-* aarch64_cortex-a53
-
-را دانلود کنید.
-
-
-
-## 🌐 دانلود فایل‌ها
+## 🌐 سایت دانلود
 
 به صفحه زیر بروید:
 
 ```text
 https://sourceforge.net/projects/openwrt-passwall-build/files/
 ```
+برای ورود به سایت نیاز به فیلتر شکن دارید .
+<br>
 
 ##  🔑 دانلود کلید ها 
 اگر OpenWrt نسخه 24 به پایین دارید :
