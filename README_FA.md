@@ -40,7 +40,6 @@
 ## 🟢 روش اول : PuTTY (ویندوز)
 
 📥 دانلود:
-[دانلود](https://soft98.ir/internet/network/3197-putty.html)
 👉 [https://soft98.ir/internet/network/3197-putty.html]
 
 
@@ -174,7 +173,7 @@ https://sourceforge.net/projects/openwrt-passwall-build/files/
 ```text
 ipk.pub
 ```
-را دانلود کنید. 
+را [دانلود](https://sourceforge.net/projects/openwrt-passwall-build/files/ipk.pub/download) کنید. 
 <br>
 
 و اگر OpenWrt نسخه 25 به پایین دارید :
@@ -183,7 +182,7 @@ ipk.pub
 ```text
 apk.pub
 ```
-را دانلود کنید. 
+را [دانلود](https://sourceforge.net/projects/openwrt-passwall-build/files/apk.pub/download) کنید. 
 
 ## 📂 انتخاب نسخه صحیح
 
