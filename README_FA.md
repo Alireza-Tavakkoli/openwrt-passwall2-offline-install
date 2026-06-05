@@ -112,6 +112,7 @@ ssh root@192.168.1.1
 root@OpenWrt:~#
 ```
 <br>
+
 ## 📊 مرحله 2 : پیدا کردن نسخه OpenWrt و معماری CPU
 
 قبل از دانلود Passwall2 باید دقیقاً بدانید:
@@ -119,7 +120,7 @@ root@OpenWrt:~#
 * نسخه OpenWrt
 * معماری CPU دستگاه
 
----
+
 
 ## 🧠 1. بررسی نسخه OpenWrt
 
@@ -129,7 +130,6 @@ root@OpenWrt:~#
 cat /etc/openwrt_release
 ```
 
----
 
 ### 📌 خروجی نمونه:
 
@@ -138,14 +138,14 @@ DISTRIB_RELEASE='23.05.2'
 DISTRIB_ARCH='aarch64_cortex-a53'
 ```
 
----
+
 
 ## 📌 معنی موارد مهم:
 
 * `DISTRIB_RELEASE` →  OpenWrt نسخه
 * `DISTRIB_ARCH` →  CPU معماری 
 
----
+
 اگر در یاداشت معماری پردازنده و نسخه OpenWrt اشتباه کنید:
 
 ❌ پکیج نصب نمی‌شود
