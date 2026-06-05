@@ -184,7 +184,7 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 https://sourceforge.net/projects/openwrt-passwall-build/files/
 ```
 
-دانلود کلید ها 
+##  🔑 دانلود کلید ها 
 اگر OpenWrt نسخه 24 به پایین دارید :
 
 
@@ -192,11 +192,13 @@ https://sourceforge.net/projects/openwrt-passwall-build/files/
 ipk.pub
 ```
 را دانلود کنید. 
-و اگر OpenWrt نسخه 24 به پایین دارید :
+<br>
+
+و اگر OpenWrt نسخه 25 به پایین دارید :
 
 
 ```text
-ipk.pub
+apk.pub
 ```
 را دانلود کنید. 
 
