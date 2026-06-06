@@ -156,13 +156,13 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 https://sourceforge.net/projects/openwrt-passwall-build/files/
 ```
 
-<br>****
+<br>
 
 ## 🔑 دانلود کلید نصب
 
 ابتدا کلید مربوط به نسخه OpenWrt خود را دانلود کنید:
 
-### OpenWrt 24.x و قدیمی‌تر
+### نسخه OpenWrt 24.x و قدیمی‌تر
 
 فایل زیر را [دانلود](https://sourceforge.net/projects/openwrt-passwall-build/files/ipk.pub/download)  کنید:
 
@@ -170,7 +170,7 @@ https://sourceforge.net/projects/openwrt-passwall-build/files/
 ipk.pub
 ```
 
-### OpenWrt 25.x و جدیدتر
+### نسخه OpenWrt 25.x و جدیدتر
 
 فایل زیر را [دانلود](https://sourceforge.net/projects/openwrt-passwall-build/files/apk.pub/download) کنید:
 
@@ -178,7 +178,7 @@ ipk.pub
 apk.pub
 ```
 
----
+<br>
 
 ## 📂 انتخاب فایل‌های مناسب
 
@@ -208,9 +208,9 @@ packages-24.10
 
 ---
 
-### انتخاب معماری دستگاه
+### انتخاب معماری CPU دستگاه
 
-حالا باید معماری (Architecture) دستگاه خود را انتخاب کنید.
+حالا باید معماری CPU دستگاه خود را انتخاب کنید.
 
 برای مثال اگر معماری دستگاه شما:
 
@@ -239,7 +239,7 @@ passwall_luci
 passwall_packages
 ```
 
-شوید.
+شوید تمام فایل هارا دانلود کنید .
 
 اگر محدودیت حجم یا فضای ذخیره‌سازی ندارید، پیشنهاد می‌شود تمام فایل‌های موجود را دانلود کنید تا بعداً با خطای وابستگی مواجه نشوید.
 
@@ -257,7 +257,7 @@ passwall_luci
 luci-app-passwall*
 ```
 
----
+<br>
 
 ## ⚠️ نکات مهم
 
@@ -278,7 +278,7 @@ incompatible with the architectures
 ```text
 cannot satisfy dependencies
 ```
-
+<br>
 
 ## 📤 مرحله 4 : انتقال فایل‌ها به روتر
 
@@ -304,7 +304,7 @@ cannot satisfy dependencies
 
 3. روی Login کلیک کنید
 
----
+<br>
 
 ### 📂 انتقال فایل‌ها:
 
@@ -322,12 +322,12 @@ cannot satisfy dependencies
 
 | نسخه OpenWrt          | کلید مورد نیاز |
 | --------------------- | -------------- |
-| OpenWrt 24 و پایین‌تر | `ipk.pub`      |
-| OpenWrt 25 و بالاتر   | `apk.pub`      |
+| نسحه OpenWrt 24 و پایین‌تر | `ipk.pub`      |
+| نسخه OpenWrt 25 و بالاتر   | `apk.pub`      |
 
----
+<br>
 
-### OpenWrt 24 و پایین‌تر
+### نسخه OpenWrt 24 و پایین‌تر
 
 فایل `ipk.pub` را به روتر منتقل کرده و اجرا کنید:
 
@@ -335,9 +335,10 @@ cannot satisfy dependencies
 cp /tmp/ipk.pub /etc/opkg/keys/
 ```
 
----
 
-### OpenWrt 25 و بالاتر
+<br>
+
+### نسخه OpenWrt 25 و بالاتر
 
 فایل `apk.pub` را به روتر منتقل کرده و اجرا کنید:
 
@@ -345,7 +346,7 @@ cp /tmp/ipk.pub /etc/opkg/keys/
 cp /tmp/apk.pub /etc/apk/keys/
 ```
 
----
+<br>
 
 ### نکته مهم
 
@@ -355,18 +356,9 @@ cp /tmp/apk.pub /etc/apk/keys/
 
   * `ipk.pub` برای بسته‌های IPK
   * `apk.pub` برای بسته‌های APK
-نکات مهم
 این کلید برای اعتماد به پکیج‌ها و مخزن استفاده می‌شود.
-در بسیاری از نصب‌های دستی IPK ممکن است بدون این مرحله نیز نصب انجام شود.
+در بسیاری از نصب‌های دستی IPK / APK ممکن است بدون این مرحله نیز نصب انجام شود.
 اضافه کردن کلید باعث می‌شود فرآیند نصب تمیزتر و مطمئن‌تر باشد.
 ### نتیجه
 
 پس از اضافه شدن کلید، می‌توانید نصب Passwall2 را ادامه دهید.
-
-نکات مهم
-این کلید برای اعتماد به پکیج‌ها و مخزن استفاده می‌شود.
-در بسیاری از نصب‌های دستی IPK ممکن است بدون این مرحله نیز نصب انجام شود.
-اضافه کردن کلید باعث می‌شود فرآیند نصب تمیزتر و مطمئن‌تر باشد.
-نتیجه
-
-اگر دستور بدون خطا اجرا شد، کلید با موفقیت به OpenWrt اضافه شده و می‌توانید مراحل نصب Passwall2 را ادامه دهید.
