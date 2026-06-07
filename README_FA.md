@@ -50,8 +50,6 @@ root
 رمز روتر (اگر تنظیم نکردی خالی بگذار)
 ```
 
-## ⚠️ نکات مهم
-
 اگر وصل نشد:
 
 - مطمئن شوید کامپیوتر به روتر وصل است
@@ -67,6 +65,7 @@ root
 ```
 root@OpenWrt:~#
 ```
+
 <br>
 
 ## 📊 مرحله 2 : پیدا کردن نسخه OpenWrt و معماری CPU
@@ -82,14 +81,14 @@ root@OpenWrt:~#
 
 وارد SSH شوید و این دستور را بزنید:
 
-```bash id="v1"
+```
 cat /etc/openwrt_release
 ```
 
 
 ### 📌 خروجی نمونه:
 
-```id="v2"
+```
 DISTRIB_RELEASE='23.05.2'
 DISTRIB_ARCH='aarch64_cortex-a53'
 ```
@@ -107,6 +106,7 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 * ❌ پکیج نصب نمی‌شود
 * ❌ یا ارور architecture می‌دهد
 * ❌ یا Passwall اجرا نمی‌شود
+
 <br>
 
 ## 📥 مرحله 3: دانلود فایل‌های Passwall2
@@ -118,7 +118,7 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 
 به [صفحه](https://sourceforge.net/projects/openwrt-passwall-build/files/) زیر بروید:
 
-```text
+```
 https://sourceforge.net/projects/openwrt-passwall-build/files/
 ```
 
@@ -132,7 +132,7 @@ https://sourceforge.net/projects/openwrt-passwall-build/files/
 
 فایل زیر را [دانلود](https://sourceforge.net/projects/openwrt-passwall-build/files/ipk.pub/download)  کنید:
 
-```text
+```
 ipk.pub
 ```
 
@@ -140,7 +140,7 @@ ipk.pub
 
 فایل زیر را [دانلود](https://sourceforge.net/projects/openwrt-passwall-build/files/apk.pub/download) کنید:
 
-```text
+```
 apk.pub
 ```
 
@@ -150,7 +150,7 @@ apk.pub
 
 وارد پوشه:
 
-```text
+```
 releases
 ```
 
@@ -160,13 +160,13 @@ releases
 
 برای مثال اگر نسخه سیستم شما:
 
-```text
+```
 24.10
 ```
 
 است، وارد پوشه:
 
-```text
+```
 packages-24.10
 ```
 
@@ -180,11 +180,11 @@ packages-24.10
 
 برای مثال اگر معماری دستگاه شما:
 
-```text
+```
 arm_cortex-a15_neon-vfpv4
 ```
 
-است، وارد پوشه‌ای با همین نام شوید.
+است، وارد پوشه‌ای با همان نام شوید.
 
 <br>
 
@@ -192,7 +192,7 @@ arm_cortex-a15_neon-vfpv4
 
 در این مرحله با دو پوشه کار داریم:
 
-```text
+```
 passwall_packages
 passwall_luci
 ```
@@ -201,7 +201,7 @@ passwall_luci
 
 وارد پوشه:
 
-```text
+```
 passwall_packages
 ```
 
@@ -213,25 +213,15 @@ passwall_packages
 
 سپس وارد پوشه:
 
-```text
+```
 passwall_luci
 ```
 
 شوید و فایل زیر را دانلود کنید:
 
-```text
+```
 luci-app-passwall*
 ```
-
-<br>
-
-## ⚠️ نکات مهم
-
-قبل از دانلود، حتماً موارد زیر را بررسی کنید:
-
-✅ نسخه فایل‌ها با نسخه OpenWrt شما یکسان باشد.
-
-✅ معماری فایل‌ها با معماری دستگاه شما مطابقت داشته باشد.
 
 <br>
 
@@ -265,10 +255,11 @@ luci-app-passwall*
 
 فایل‌های دانلود شده را به این مسیر منتقل کنید:
 
-```bash id="tmp3"
+```
 /tmp/
 ```
 و تمام دیگه کارمون با WinSCP تموم میشه و دوباره وارد برنامه PuTTY میشم.
+
 <br>
 
 
@@ -281,7 +272,7 @@ luci-app-passwall*
 ## 🟡 نسخه OpenWrt 24 و پایین‌تر
 
 
-```bash
+```
 echo "nameserver 8.8.8.8" > /tmp/resolv.conf
 echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
 opkg update
@@ -295,7 +286,7 @@ opkg install kmod-nft-tproxy
 
 ## 🔵 نسخه OpenWrt 25 و بالاتر
 
-```bash
+```
 echo "nameserver 8.8.8.8" > /tmp/resolv.conf
 echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
 apk update
@@ -307,7 +298,6 @@ apk add kmod-nft-tproxy
 ```
 
 <br>
-
 
 ## 🔑 اضافه کردن کلید مناسب
 
@@ -326,7 +316,7 @@ apk add kmod-nft-tproxy
 
 فایل `ipk.pub` را به روتر منتقل کرده و اجرا کنید:
 
-```bash
+```
 cp /tmp/ipk.pub /etc/opkg/keys/
 ```
 
@@ -337,20 +327,9 @@ cp /tmp/ipk.pub /etc/opkg/keys/
 
 فایل `apk.pub` را به روتر منتقل کرده و اجرا کنید:
 
-```bash
+```
 cp /tmp/apk.pub /etc/apk/keys/
 ```
-
-<br>
-
-### نکته مهم
-
-* از کلید متناسب با نسخه OpenWrt خود استفاده کنید.
-* استفاده از کلید اشتباه ممکن است باعث خطا در اعتبارسنجی پکیج‌ها شود.
-* این کلید برای اعتماد به پکیج‌ها و مخزن استفاده می‌شود.
-* در بسیاری از نصب‌های دستی IPK / APK ممکن است بدون این مرحله نیز نصب انجام شود.
-* اضافه کردن کلید باعث می‌شود فرآیند نصب تمیزتر و مطمئن‌تر باشد.
-
 
 <br>
 
@@ -364,19 +343,19 @@ cp /tmp/apk.pub /etc/apk/keys/
 
 ابتدا وارد مسیر فایل‌ها شوید:
 
-```bash
+```
 cd /tmp
 ```
 
 برای مشاهده فایل‌های منتقل شده:
 
-```bash
+```
 ls
 ```
 
 اگر فایل‌های `.ipk` را مشاهده می‌کنید، نصب را آغاز کنید:
 
-```bash
+```
 opkg install *.ipk
 ```
 
@@ -384,19 +363,19 @@ opkg install *.ipk
 
 ابتدا وارد مسیر فایل‌ها شوید:
 
-```bash
+```
 cd /tmp
 ```
 
 برای مشاهده فایل‌ها:
 
-```bash
+```
 ls
 ```
 
 اگر فایل‌های `.apk` را مشاهده می‌کنید:
 
-```bash
+```
 apk add --allow-untrusted ./*.apk
 ```
 
@@ -407,19 +386,19 @@ apk add --allow-untrusted ./*.apk
 
 ### نسخه OpenWrt 24
 
-```bash
+```
 opkg list-installed | grep passwall
 ```
 
 ### نسخه OpenWrt 25
 
-```bash
+```
 apk info | grep passwall
 ```
 <br>
 
-در آخر هم ریبوت کرده
-```bash id="d4zsc5"
+در آخر هم ریبوت کرده.
+```
 reboot
 ```
 
