@@ -1,8 +1,5 @@
 # Passwall2 Manual Installation Guide for OpenWrt
 
-## Persian Guide
-Full Persian documentation: README_FA.md
-
 ## Introduction
 
 In this guide, you will learn how to install Passwall2 manually on OpenWrt.
@@ -362,3 +359,5 @@ Finally, reboot the router:
 ```
 reboot
 ```
+## Persian Guide
+Full Persian documentation: README_FA.md
