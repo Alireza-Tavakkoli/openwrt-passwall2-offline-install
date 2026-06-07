@@ -418,36 +418,8 @@ apk info | grep passwall
 ```
 <br>
 
-
-## 🚀 مرحله 6: فعال‌سازی و راه‌اندازی Passwall2
-
-پس از نصب موفق Passwall2، بهتر است سرویس را یک بار فعال و راه‌اندازی مجدد کنید.
-
-
-
-### 🟡 نسخه OpenWrt 24 و پایین‌تر
-
-فعال‌سازی سرویس:
-
-```bash id="gk3ztn"
-/etc/init.d/passwall2 enable
-```
-
-راه‌اندازی مجدد:
-
-```bash id="zj7t88"
-/etc/init.d/passwall2 restart
-```
-
-
-
-### 🔵 نسخه OpenWrt 25 و بالاتر
-
-در بیشتر بیلدها همچنان از init.d استفاده می‌شود:
-
+در آخر هم ریبوت کرده
 ```bash id="d4zsc5"
-/etc/init.d/passwall2 enable
-/etc/init.d/passwall2 restart
+reboot
 ```
-
 
