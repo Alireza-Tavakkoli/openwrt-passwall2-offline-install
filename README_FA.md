@@ -280,7 +280,6 @@ luci-app-passwall*
 
 ## 🟡 نسخه OpenWrt 24 و پایین‌تر
 
-### نصب پکیج‌های مورد نیاز
 
 ```bash
 echo "nameserver 8.8.8.8" > /tmp/resolv.conf
