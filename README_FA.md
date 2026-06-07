@@ -269,6 +269,8 @@ luci-app-passwall*
 /tmp/
 ```
 
+<br>
+
 ## 🔑 اضافه کردن کلید مناسب
 
 قبل از نصب Passwall2 باید کلید مناسب نسخه OpenWrt خود را اضافه کنید.
@@ -341,12 +343,15 @@ opkg install kmod-nft-tproxy
 echo "nameserver 8.8.8.8" > /tmp/resolv.conf
 echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
 apk update
+apk del dnsmasq
+apk add dnsmasq-full
 apk add kmod-ipt-nat
 apk add kmod-nft-socket
 apk add kmod-nft-tproxy
 ```
 
 <br>
+
 ## 📦 مرحله 5: نصب فایل‌های Passwall2
 
 پس از دانلود فایل‌ها، انتقال آن‌ها به روتر و نصب وابستگی‌های لازم، حالا می‌توانید Passwall2 را نصب کنید.
