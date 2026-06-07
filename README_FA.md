@@ -344,7 +344,6 @@ opkg list-installed | grep passwall
 apk info | grep passwall
 ```
 
-
 در آخر هم ریبوت کرده.
 ```
 reboot
