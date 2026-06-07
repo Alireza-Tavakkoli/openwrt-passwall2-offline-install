@@ -310,7 +310,8 @@ cp /tmp/apk.pub /etc/apk/keys/
 * این کلید برای اعتماد به پکیج‌ها و مخزن استفاده می‌شود.
 * در بسیاری از نصب‌های دستی IPK / APK ممکن است بدون این مرحله نیز نصب انجام شود.
 * اضافه کردن کلید باعث می‌شود فرآیند نصب تمیزتر و مطمئن‌تر باشد.
-* 
+
+
 ### نتیجه
 
 پس از اضافه شدن کلید، می‌توانید نصب Passwall2 را ادامه دهید.
@@ -320,107 +321,38 @@ cp /tmp/apk.pub /etc/apk/keys/
 
 <br>
 
-## 🌐 تنظیم DNS
-
-اگر مخازن OpenWrt باز نمی‌شوند، یک DNS عمومی تنظیم کنید.
-
-پیشنهاد:
-
-```text
-1.1.1.1
-8.8.8.8
-```
-
-<br>
-
-## ⚠️ غیرفعال کردن DNS Masq (در صورت نیاز)
-
-در برخی موارد برای جلوگیری از تداخل DNS بهتر است DNS Masq را متوقف کنید:
-
-### OpenWrt 24 و پایین‌تر
-
-```bash
-/etc/init.d/dnsmasq stop
-/etc/init.d/dnsmasq disable
-```
-
-### OpenWrt 25 و بالاتر
-
-```bash
-service dnsmasq stop
-```
-
-> در صورت نیاز می‌توانید پس از پایان نصب مجدداً آن را فعال کنید.
-
-<br>
-
 ## 🟡 OpenWrt 24 و پایین‌تر
-
-### بروزرسانی مخازن
-
-```bash
-opkg update
-```
 
 ### نصب پکیج‌های مورد نیاز
 
 ```bash
+echo "nameserver 8.8.8.8" > /tmp/resolv.conf
+echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
+opkg update
+opkg remove dnsmasq
+opkg install dnsmasq-full
 opkg install kmod-ipt-nat
-sleep 2
-
 opkg install kmod-nft-socket
-sleep 2
-
 opkg install kmod-nft-tproxy
 ```
-
----
+<br>
 
 ## 🔵 OpenWrt 25 و بالاتر
 
-### بروزرسانی مخازن
-
 ```bash
+echo "nameserver 8.8.8.8" > /tmp/resolv.conf
+echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
 apk update
-```
-
-### نصب پکیج‌های مورد نیاز
-
-```bash
 apk add kmod-ipt-nat
-sleep 2
-
 apk add kmod-nft-socket
-sleep 2
-
 apk add kmod-nft-tproxy
 ```
 
----
-
-## 📌 بررسی نصب موفق
-
-برای اطمینان از نصب ماژول‌ها:
-
-```bash
-lsmod | grep nft
-```
-
----
-
-## 🎯 نتیجه این مرحله
-
-پس از انجام مراحل بالا:
-
-* DNS تنظیم شده است.
-* مخازن بروزرسانی شده‌اند.
-* ماژول‌های NAT و TProxy نصب شده‌اند.
-* سیستم آماده نصب فایل‌های Passwall2 دانلود شده از SourceForge است.
 ## 📦 مرحله 5: نصب فایل‌های Passwall2
 
 پس از دانلود فایل‌ها، انتقال آن‌ها به روتر و نصب وابستگی‌های لازم، حالا می‌توانید Passwall2 را نصب کنید.
 
----
+
 
 ## 🟡 OpenWrt 24 و پایین‌تر (IPK)
 
@@ -442,20 +374,6 @@ ls
 opkg install *.ipk
 ```
 
----
-
-### در صورت مشاهده خطای وابستگی
-
-ابتدا مخازن را بروزرسانی کنید:
-
-```bash
-opkg update
-```
-
-سپس دوباره نصب را انجام دهید.
-
----
-
 ## 🔵 OpenWrt 25 و بالاتر (APK)
 
 ابتدا وارد مسیر فایل‌ها شوید:
@@ -476,19 +394,6 @@ ls
 apk add --allow-untrusted ./*.apk
 ```
 
----
-
-### در صورت مشاهده خطا
-
-ابتدا مخازن را بروزرسانی کنید:
-
-```bash
-apk update
-```
-
-سپس دوباره نصب را انجام دهید.
-
----
 
 ## 🔍 بررسی نصب
 
@@ -506,7 +411,7 @@ opkg list-installed | grep passwall
 apk info | grep passwall
 ```
 
----
+
 
 ## 🎯 نتیجه
 
@@ -515,157 +420,14 @@ apk info | grep passwall
 * Passwall2 نصب شده است.
 * رابط LuCI مربوط به Passwall2 نیز نصب شده است.
 * آماده راه‌اندازی و تنظیم کانفیگ هستید.
-## 📦 مرحله 5: نصب فایل‌های Passwall2
 
-پس از دانلود فایل‌ها، انتقال آن‌ها به روتر و نصب پیش‌نیازها، حالا نوبت نصب Passwall2 است.
 
----
 
-## 🟡 OpenWrt 24 و پایین‌تر (IPK)
-
-ابتدا وارد مسیر فایل‌ها شوید:
-
-```bash
-cd /tmp
-```
-
-بررسی فایل‌های موجود:
-
-```bash
-ls *.ipk
-```
-
-### ترتیب پیشنهادی نصب
-
-#### 1. وابستگی‌ها (Dependencies)
-
-ابتدا تمام فایل‌های وابستگی را نصب کنید:
-
-```bash
-opkg install ./dependencies/*.ipk
-```
-
-> اگر وابستگی‌ها در پوشه جداگانه نیستند، ابتدا فایل‌هایی را نصب کنید که نام آن‌ها با `luci-i18n` یا `passwall2` شروع نمی‌شود.
-
----
-
-#### 2. هسته‌های مورد نیاز
-
-در صورت وجود:
-
-```bash
-opkg install xray-core*.ipk
-```
-
-یا:
-
-```bash
-opkg install sing-box*.ipk
-```
-
-یا هر دو (بسته به نیاز شما)
-
----
-
-#### 3. نصب Passwall2
-
-```bash
-opkg install passwall2*.ipk
-```
-
----
-
-#### 4. نصب رابط گرافیکی LuCI
-
-```bash
-opkg install luci-app-passwall2*.ipk
-```
-
----
-
-#### 5. نصب ترجمه فارسی (اختیاری)
-
-```bash
-opkg install luci-i18n-passwall2-*.ipk
-```
-
----
-
-## 🔵 OpenWrt 25 و بالاتر (APK)
-
-وارد مسیر فایل‌ها شوید:
-
-```bash
-cd /tmp
-```
-
-بررسی فایل‌ها:
-
-```bash
-ls *.apk
-```
-
-### ترتیب پیشنهادی نصب
-
-#### 1. وابستگی‌ها
-
-```bash
-apk add --allow-untrusted ./dependencies/*.apk
-```
-
----
-
-#### 2. هسته‌های مورد نیاز
-
-```bash
-apk add --allow-untrusted xray-core*.apk
-```
-
-یا:
-
-```bash
-apk add --allow-untrusted sing-box*.apk
-```
-
----
-
-#### 3. نصب Passwall2
-
-```bash
-apk add --allow-untrusted passwall2*.apk
-```
-
----
-
-#### 4. نصب رابط LuCI
-
-```bash
-apk add --allow-untrusted luci-app-passwall2*.apk
-```
-
----
-
-#### 5. نصب ترجمه فارسی (اختیاری)
-
-```bash
-apk add --allow-untrusted luci-i18n-passwall2-*.apk
-```
-
----
-
-## 🎯 نتیجه
-
-پس از اتمام مراحل بالا:
-
-* Passwall2 نصب شده است.
-* رابط گرافیکی LuCI نصب شده است.
-* هسته‌های مورد نیاز (Xray / Sing-box) آماده استفاده هستند.
-* سیستم آماده راه‌اندازی Passwall2 است.
 ## 🚀 مرحله 6: فعال‌سازی و راه‌اندازی Passwall2
 
 پس از نصب موفق Passwall2، بهتر است سرویس را یک بار فعال و راه‌اندازی مجدد کنید.
 
----
+
 
 ### 🟡 OpenWrt 24 و پایین‌تر
 
@@ -681,7 +443,7 @@ apk add --allow-untrusted luci-i18n-passwall2-*.apk
 /etc/init.d/passwall2 restart
 ```
 
----
+
 
 ### 🔵 OpenWrt 25 و بالاتر
 
@@ -692,45 +454,4 @@ apk add --allow-untrusted luci-i18n-passwall2-*.apk
 /etc/init.d/passwall2 restart
 ```
 
----
 
-### بررسی وضعیت سرویس
-
-```bash id="40k0fa"
-/etc/init.d/passwall2 status
-```
-
-یا:
-
-```bash id="vl5u7q"
-ps | grep passwall
-```
-
----
-
-### اگر رابط Passwall2 در LuCI نمایش داده نشد
-
-یک بار رابط وب را رفرش کنید یا سرویس وب را ریستارت کنید:
-
-```bash id="i6upn8"
-/etc/init.d/uhttpd restart
-```
-
----
-
-## 🎯 پایان نصب
-
-اگر همه مراحل را درست انجام داده باشید:
-
-✅ Passwall2 نصب شده است.
-
-✅ سرویس Passwall2 در حال اجرا است.
-
-✅ بخش Passwall2 در پنل LuCI قابل مشاهده است.
-
-اکنون می‌توانید کانفیگ‌های خود را وارد کرده و از Passwall2 استفاده کنید.
-یه نکته کوچیک هم برای README: اگر خودت بعد از نصب معمولاً کل روتر رو ریبوت می‌کنی و نتیجه بهتری می‌گیری، می‌تونی آخرش اینم اضافه کنی:
-
-reboot
-
-چون بعضی ماژول‌های kmod-nft-* بعد از ریبوت مطمئن‌تر بارگذاری می‌شن.
