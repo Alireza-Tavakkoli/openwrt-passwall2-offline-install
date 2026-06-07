@@ -275,9 +275,10 @@ luci-app-passwall*
 
 ### انتخاب کلید
 
-| نسخه OpenWrt          | کلید مورد نیاز |
-| نسحه OpenWrt 24 و پایین‌تر | `ipk.pub`      |
-| نسخه OpenWrt 25 و بالاتر   | `apk.pub`      |
+  
+نسحه OpenWrt 24 و پایین‌تر  `ipk.pub`      
+
+نسخه OpenWrt 25 و بالاتر    `apk.pub`      
 
 <br>
 
