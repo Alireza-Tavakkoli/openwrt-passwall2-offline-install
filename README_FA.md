@@ -1,5 +1,4 @@
 # آموزش نصب Passwall2 به صورت دستی روی OpenWrt
-<br>
 
 ## مقدمه
 در این آموزش یاد می‌گیرید چگونه Passwall2 را به صورت دستی (Manual) روی OpenWrt نصب کنید.
@@ -8,7 +7,6 @@
 - اینترنت آزاد بر روی روتر ندارید 
 - یا می‌خواهید فایل‌ها را خودتان نصب کنید
 - یا ابزار opkg / apk به درستی کار نمی‌کند
-<br>
 
 ## 🔌 مرحله 1 : اتصال به روتر
 
@@ -20,24 +18,18 @@
 
 👉 [https://soft98.ir/internet/network/3197-putty.html]
 
-
 ### 📌 مراحل اتصال
 
 1. برنامه PuTTY را باز کنید
 2. در قسمت **Host Name** این را وارد کنید:
-
 ```
 192.168.1.1
 ```
-
 3. روی **Open** کلیک کنید
-
-
 
 ### 🔑 ورود به روتر
 
 وقتی صفحه سیاه باز شد:
-
 * Username :
 
 ```
@@ -56,8 +48,6 @@ root
 - آی‌پی ممکن است غیر از 192.168.1.1 باشد
 - اولین اتصال ممکن است هشدار امنیتی بدهد (yes بزنید)
 
-<br>
-
 ## 🎯 نتیجه این مرحله
 
 اگر درست انجام شود باید وارد محیطی شوید که شبیه این است:
@@ -66,16 +56,12 @@ root
 root@OpenWrt:~#
 ```
 
-<br>
-
 ## 📊 مرحله 2 : پیدا کردن نسخه OpenWrt و معماری CPU
 
 قبل از دانلود Passwall2 باید دقیقاً بدانید:
 
 * نسخه OpenWrt
 * معماری CPU دستگاه
-
-
 
 ## 🧠 1. بررسی نسخه OpenWrt
 
@@ -85,21 +71,16 @@ root@OpenWrt:~#
 cat /etc/openwrt_release
 ```
 
-
 ### 📌 خروجی نمونه:
-
 ```
 DISTRIB_RELEASE='23.05.2'
 DISTRIB_ARCH='aarch64_cortex-a53'
 ```
 
-
-
 ## 📌 معنی موارد مهم:
 
 * `DISTRIB_RELEASE` →  OpenWrt نسخه
 * `DISTRIB_ARCH` →  CPU معماری 
-
 
 اگر در یاداشت معماری پردازنده و نسخه OpenWrt اشتباه کنید:
 
@@ -107,12 +88,9 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 * ❌ یا ارور architecture می‌دهد
 * ❌ یا Passwall اجرا نمی‌شود
 
-<br>
-
 ## 📥 مرحله 3: دانلود فایل‌های Passwall2
 
 برای دانلود فایل‌ها به فیلترشکن نیاز دارید.
-
 
 ## 🌐 سایت دانلود
 
@@ -121,8 +99,6 @@ DISTRIB_ARCH='aarch64_cortex-a53'
 ```
 https://sourceforge.net/projects/openwrt-passwall-build/files/
 ```
-
-<br>
 
 ## 🔑 دانلود کلید نصب
 
@@ -144,8 +120,6 @@ ipk.pub
 apk.pub
 ```
 
-<br>
-
 ## 📂 انتخاب فایل‌های مناسب
 
 وارد پوشه:
@@ -163,16 +137,13 @@ releases
 ```
 24.10
 ```
-
 است، وارد پوشه:
 
 ```
 packages-24.10
 ```
-
 شوید.
 
-<br>
 
 ### انتخاب معماری CPU دستگاه
 
@@ -183,10 +154,8 @@ packages-24.10
 ```
 arm_cortex-a15_neon-vfpv4
 ```
-
 است، وارد پوشه‌ای با همان نام شوید.
 
-<br>
 
 ## 📦 دانلود بسته‌های موردنیاز
 
@@ -223,8 +192,6 @@ passwall_luci
 luci-app-passwall*
 ```
 
-<br>
-
 ## 📤 مرحله 4 : انتقال فایل‌ها به روتر
 
 بعد از دانلود فایل‌های Passwall2 باید آن‌ها را به روتر OpenWrt منتقل کنید.
@@ -249,8 +216,6 @@ luci-app-passwall*
 
 3. روی Login کلیک کنید
 
-<br>
-
 ### 📂 انتقال فایل‌ها:
 
 فایل‌های دانلود شده را به این مسیر منتقل کنید:
@@ -260,14 +225,9 @@ luci-app-passwall*
 ```
 و تمام دیگه کارمون با WinSCP تموم میشه و دوباره وارد برنامه PuTTY میشم.
 
-<br>
-
-
 ## ⚙️ مرحله 4: آماده‌سازی سیستم قبل از نصب Passwall2 و اضافه کردن کلید
 
 قبل از نصب فایل‌های Passwall2، بهتر است سیستم را آماده کنید تا وابستگی‌های مورد نیاز از مخازن رسمی OpenWrt نصب شوند.
-
-<br>
 
 ## 🟡 نسخه OpenWrt 24 و پایین‌تر
 
@@ -282,7 +242,6 @@ opkg install kmod-ipt-nat
 opkg install kmod-nft-socket
 opkg install kmod-nft-tproxy
 ```
-<br>
 
 ## 🔵 نسخه OpenWrt 25 و بالاتر
 
@@ -297,8 +256,6 @@ apk add kmod-nft-socket
 apk add kmod-nft-tproxy
 ```
 
-<br>
-
 ## 🔑 اضافه کردن کلید مناسب
 
 قبل از نصب Passwall2 باید کلید مناسب نسخه OpenWrt خود را اضافه کنید.
@@ -310,8 +267,6 @@ apk add kmod-nft-tproxy
 
 نسخه OpenWrt 25 و بالاتر    `apk.pub`      
 
-<br>
-
 ### نسخه OpenWrt 24 و پایین‌تر
 
 فایل `ipk.pub` را به روتر منتقل کرده و اجرا کنید:
@@ -319,10 +274,6 @@ apk add kmod-nft-tproxy
 ```
 cp /tmp/ipk.pub /etc/opkg/keys/
 ```
-
-
-<br>
-
 ### نسخه OpenWrt 25 و بالاتر
 
 فایل `apk.pub` را به روتر منتقل کرده و اجرا کنید:
@@ -331,12 +282,9 @@ cp /tmp/ipk.pub /etc/opkg/keys/
 cp /tmp/apk.pub /etc/apk/keys/
 ```
 
-<br>
-
 ## 📦 مرحله 5: نصب فایل‌های Passwall2
 
 پس از دانلود فایل‌ها، انتقال آن‌ها به روتر و نصب وابستگی‌های لازم، حالا می‌توانید Passwall2 را نصب کنید.
-
 
 
 ## 🟡 نسخه OpenWrt 24 و پایین‌تر (IPK)
@@ -395,7 +343,7 @@ opkg list-installed | grep passwall
 ```
 apk info | grep passwall
 ```
-<br>
+
 
 در آخر هم ریبوت کرده.
 ```
