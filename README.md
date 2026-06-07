@@ -104,7 +104,7 @@ If you download packages for the wrong OpenWrt version or CPU architecture:
 
 ## 📥 Step 3: Download the Passwall2 Files
 
-You will need a VPN or unrestricted internet access to download the required files.
+If the website does not load for you, try using a VPN.
 
 ## 🌐 Download Page
 
