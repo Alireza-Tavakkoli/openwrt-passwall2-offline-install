@@ -311,17 +311,15 @@ cp /tmp/apk.pub /etc/apk/keys/
 * در بسیاری از نصب‌های دستی IPK / APK ممکن است بدون این مرحله نیز نصب انجام شود.
 * اضافه کردن کلید باعث می‌شود فرآیند نصب تمیزتر و مطمئن‌تر باشد.
 
+<br>
 
-### نتیجه
-
-پس از اضافه شدن کلید، می‌توانید نصب Passwall2 را ادامه دهید.
 ## ⚙️ مرحله 4: آماده‌سازی سیستم قبل از نصب Passwall2
 
 قبل از نصب فایل‌های Passwall2، بهتر است سیستم را آماده کنید تا وابستگی‌های مورد نیاز از مخازن رسمی OpenWrt نصب شوند.
 
 <br>
 
-## 🟡 OpenWrt 24 و پایین‌تر
+## 🟡 نسخه OpenWrt 24 و پایین‌تر
 
 ### نصب پکیج‌های مورد نیاز
 
@@ -337,7 +335,7 @@ opkg install kmod-nft-tproxy
 ```
 <br>
 
-## 🔵 OpenWrt 25 و بالاتر
+## 🔵 نسخه OpenWrt 25 و بالاتر
 
 ```bash
 echo "nameserver 8.8.8.8" > /tmp/resolv.conf
@@ -348,13 +346,14 @@ apk add kmod-nft-socket
 apk add kmod-nft-tproxy
 ```
 
+<br>
 ## 📦 مرحله 5: نصب فایل‌های Passwall2
 
 پس از دانلود فایل‌ها، انتقال آن‌ها به روتر و نصب وابستگی‌های لازم، حالا می‌توانید Passwall2 را نصب کنید.
 
 
 
-## 🟡 OpenWrt 24 و پایین‌تر (IPK)
+## 🟡 نسخه OpenWrt 24 و پایین‌تر (IPK)
 
 ابتدا وارد مسیر فایل‌ها شوید:
 
@@ -374,7 +373,7 @@ ls
 opkg install *.ipk
 ```
 
-## 🔵 OpenWrt 25 و بالاتر (APK)
+## 🔵 نسخه OpenWrt 25 و بالاتر (APK)
 
 ابتدا وارد مسیر فایل‌ها شوید:
 
@@ -399,28 +398,18 @@ apk add --allow-untrusted ./*.apk
 
 برای اطمینان از نصب Passwall2:
 
-### OpenWrt 24
+### نسخه OpenWrt 24
 
 ```bash
 opkg list-installed | grep passwall
 ```
 
-### OpenWrt 25
+### نسخه OpenWrt 25
 
 ```bash
 apk info | grep passwall
 ```
-
-
-
-## 🎯 نتیجه
-
-اگر مراحل بدون خطا انجام شده باشند:
-
-* Passwall2 نصب شده است.
-* رابط LuCI مربوط به Passwall2 نیز نصب شده است.
-* آماده راه‌اندازی و تنظیم کانفیگ هستید.
-
+<br>
 
 
 ## 🚀 مرحله 6: فعال‌سازی و راه‌اندازی Passwall2
@@ -429,7 +418,7 @@ apk info | grep passwall
 
 
 
-### 🟡 OpenWrt 24 و پایین‌تر
+### 🟡 نسخه OpenWrt 24 و پایین‌تر
 
 فعال‌سازی سرویس:
 
@@ -445,7 +434,7 @@ apk info | grep passwall
 
 
 
-### 🔵 OpenWrt 25 و بالاتر
+### 🔵 نسخه OpenWrt 25 و بالاتر
 
 در بیشتر بیلدها همچنان از init.d استفاده می‌شود:
 
