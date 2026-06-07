@@ -271,6 +271,45 @@ luci-app-passwall*
 و تمام دیگه کارمون با WinSCP تموم میشه و دوباره وارد برنامه PuTTY میشم.
 <br>
 
+
+## ⚙️ مرحله 4: آماده‌سازی سیستم قبل از نصب Passwall2 و اضافه کردن کلید
+
+قبل از نصب فایل‌های Passwall2، بهتر است سیستم را آماده کنید تا وابستگی‌های مورد نیاز از مخازن رسمی OpenWrt نصب شوند.
+
+<br>
+
+## 🟡 نسخه OpenWrt 24 و پایین‌تر
+
+### نصب پکیج‌های مورد نیاز
+
+```bash
+echo "nameserver 8.8.8.8" > /tmp/resolv.conf
+echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
+opkg update
+opkg remove dnsmasq
+opkg install dnsmasq-full
+opkg install kmod-ipt-nat
+opkg install kmod-nft-socket
+opkg install kmod-nft-tproxy
+```
+<br>
+
+## 🔵 نسخه OpenWrt 25 و بالاتر
+
+```bash
+echo "nameserver 8.8.8.8" > /tmp/resolv.conf
+echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
+apk update
+apk del dnsmasq
+apk add dnsmasq-full
+apk add kmod-ipt-nat
+apk add kmod-nft-socket
+apk add kmod-nft-tproxy
+```
+
+<br>
+
+
 ## 🔑 اضافه کردن کلید مناسب
 
 قبل از نصب Passwall2 باید کلید مناسب نسخه OpenWrt خود را اضافه کنید.
@@ -313,42 +352,6 @@ cp /tmp/apk.pub /etc/apk/keys/
 * در بسیاری از نصب‌های دستی IPK / APK ممکن است بدون این مرحله نیز نصب انجام شود.
 * اضافه کردن کلید باعث می‌شود فرآیند نصب تمیزتر و مطمئن‌تر باشد.
 
-<br>
-
-## ⚙️ مرحله 4: آماده‌سازی سیستم قبل از نصب Passwall2
-
-قبل از نصب فایل‌های Passwall2، بهتر است سیستم را آماده کنید تا وابستگی‌های مورد نیاز از مخازن رسمی OpenWrt نصب شوند.
-
-<br>
-
-## 🟡 نسخه OpenWrt 24 و پایین‌تر
-
-### نصب پکیج‌های مورد نیاز
-
-```bash
-echo "nameserver 8.8.8.8" > /tmp/resolv.conf
-echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
-opkg update
-opkg remove dnsmasq
-opkg install dnsmasq-full
-opkg install kmod-ipt-nat
-opkg install kmod-nft-socket
-opkg install kmod-nft-tproxy
-```
-<br>
-
-## 🔵 نسخه OpenWrt 25 و بالاتر
-
-```bash
-echo "nameserver 8.8.8.8" > /tmp/resolv.conf
-echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
-apk update
-apk del dnsmasq
-apk add dnsmasq-full
-apk add kmod-ipt-nat
-apk add kmod-nft-socket
-apk add kmod-nft-tproxy
-```
 
 <br>
 
